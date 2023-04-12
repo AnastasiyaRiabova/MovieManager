@@ -1,6 +1,5 @@
 public class MovieManager {
-
-    private String[] movies = new String[0]; // изначально фильмы не добавлены
+    private String[] movies = new String[0];
     private int limit;
 
     public MovieManager() {
@@ -11,21 +10,20 @@ public class MovieManager {
         this.limit = limit;
     }
 
-    public void add(String movie) { // метод добавления фильмов
+    public void add(String movie) {
         String[] tmp = new String[movies.length + 1];
-        for (int i = 0; i < movies.length; i++) { // копируем из старого в новый массив
+        for (int i = 0; i < movies.length; i++) {
             tmp[i] = movies[i];
         }
         tmp[tmp.length - 1] = movie;
         movies = tmp;
     }
 
-    public String[] findAll() {// метод нахождения всех фильмов, которые были добавлены
-
+    public String[] findAll() {
         return movies;
     }
 
-    public String[] findLast() {// метод нахождения  последних добавленных фильмов в обратном от добавления порядке
+    public String[] findLast() {
         int resultLength;
         if (movies.length < limit) {
             resultLength = movies.length;
@@ -33,10 +31,9 @@ public class MovieManager {
             resultLength = limit;
         }
         String[] tmp = new String[resultLength];
-        for (int i = 0; i < movies.length; i++) {
+        for (int i = 0; i < tmp.length; i++) {
             tmp[i] = movies[movies.length - 1 - i];
         }
         return tmp;
     }
-
 }
